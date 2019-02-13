@@ -1,15 +1,20 @@
 {
   "compilerOptions": {
-      "outDir": "./built/",
-      "sourceMap": true,
-      "strict": true,
-      "noImplicitReturns": true,
-      "module": "es2015",
-      "moduleResolution": "node",
-      "target": "es5"
+    "outDir": "./built/",
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "target": "es5",
+    "typeRoots": [
+      "typings"
+    ],
   },
   "include": [
-      "./src/**/*"
+    "./src/**/*",
+    "typings/**/*"
   ],
   "exclude": [
     "./node_modules/**/*"
