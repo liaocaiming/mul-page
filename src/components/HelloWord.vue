@@ -3,6 +3,7 @@
     <div class="greeting">Hello {{name}}{{exclamationMarks}}</div>
     <button @click="decrement">-</button>
     <button @click="increment">+</button>
+    <img src="../images/2.jpg" alt="">
   </div>
 </template>
 
@@ -12,15 +13,15 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 @Component
 export default class Hello extends Vue {
   enthusiasm = 1;
-  data() {
+  public data() {
     return {
       name: "liaocaiming"
     };
   }
-  increment() {
+  public increment() {
     this.enthusiasm++;
   }
-  decrement() {
+  public decrement() {
     if (this.enthusiasm > 1) {
       this.enthusiasm--;
     }

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./built/",
+    "outDir": "./dist/",
     "experimentalDecorators": true,
     "sourceMap": true,
     "strict": true,
