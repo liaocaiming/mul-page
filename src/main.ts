@@ -1,11 +1,25 @@
 import Vue from "vue";
 
-import { helpers } from '@shared/lib/index';
+import routes from './routes'
 
-import HelloWord from './components/HelloWord';
+import VueRouter from 'vue-router';
 
-console.log(helpers.dyadicArray([], 1), 122);
+import { setTitle } from '@shared/utils/index';
+
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+  mode: 'history',
+  routes
+})
+
+router.beforeEach((to, from, next) => {
+  console.log(to)
+  console.log(from);
+  setTitle(to.meta.title);
+  next();
+})
 
 new Vue({
-   render: r => r(HelloWord)
+   router
 }).$mount('#app');

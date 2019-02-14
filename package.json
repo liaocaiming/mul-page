@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "typescript": "^3.3.3",
-    "vue": "^2.5.22"
+    "vue": "^2.5.22",
+    "vue-router": "^3.0.2"
   },
   "devDependencies": {
     "css-loader": "^2.1.0",

@@ -5,6 +5,7 @@
     "experimentalDecorators": true,
     "sourceMap": true,
     "strict": true,
+    "jsx": "preserve",
     "noImplicitReturns": true,
     "module": "es6",
     "moduleResolution": "node",
@@ -17,7 +18,7 @@
     }
   },
   "include": [
-    "./src/**/*",
+    "src/**/*",
     "typings/**/*"
   ],
   "exclude": [
