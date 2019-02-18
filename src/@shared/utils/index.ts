@@ -4,5 +4,5 @@ import setTitle from './setTitle';
 
 export {
   dyadicArray,
-  setTitle
+  setTitle,
 }

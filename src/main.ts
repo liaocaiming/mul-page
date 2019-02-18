@@ -1,6 +1,6 @@
 import Vue from "vue";
 
-import routes from './routes'
+import { routes } from "@src/config/mobile";
 
 import VueRouter from 'vue-router';
 
@@ -14,8 +14,6 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  console.log(to)
-  console.log(from);
   setTitle(to.meta.title);
   next();
 })

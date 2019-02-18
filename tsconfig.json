@@ -7,14 +7,16 @@
     "strict": true,
     "jsx": "preserve",
     "noImplicitReturns": true,
-    "module": "es6",
+    "module": "commonjs",
     "moduleResolution": "node",
     "target": "es5",
+    "lib": ["es7", "dom"],
     "typeRoots": [
       "typings"
     ],
     "paths": {
-      "@shared/*": ["src/@shared/*"]
+      "@shared/*": ["src/@shared/*"],
+      "@src/*": ["src/*"]
     }
   },
   "include": [

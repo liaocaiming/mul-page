@@ -1,6 +1,8 @@
 const  helpers = require('./helpers');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const argv = require('yargs').argv
+const name = argv.name || 'mobile';
 
 module.exports = {
   mode: 'development',
@@ -43,6 +45,15 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
+      },
+      {
+        test: /\.(vue|tsx?)$/,
+        loader: 'string-replace-loader',
+        options: {
+          multiple: [
+            { search: '@src/config/mobile', replace: `@src/config/${name}` }
+          ]
+        }
       }
     ]
   },
@@ -51,7 +62,8 @@ module.exports = {
     extensions: [".js", ".json", ".jsx", ".css", ".vue", '.ts'],
     alias: {
       'vue': 'vue/dist/vue.esm.js',
-      '@shared': helpers.resolve('../src/@shared')
+      '@shared': helpers.resolve('../src/@shared'),
+      '@src': helpers.resolve('../src')
     }
   },
   plugins: [

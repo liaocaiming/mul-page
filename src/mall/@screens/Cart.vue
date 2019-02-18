@@ -1,9 +1,10 @@
 <template>
   <div>
     <div class="greeting">Hello {{name}}{{exclamationMarks}}</div>
+    <div>cart</div>
     <button @click="decrement">-</button>
     <button @click="increment">+</button>
-    <img src="../images/2.jpg" alt="">
+    <img src="../../images/2.jpg" alt="">
   </div>
 </template>
 
