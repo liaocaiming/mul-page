@@ -1,23 +1,40 @@
-const webpackConfig = require('./webpack.config');
+const detectPort = require("./utils/detectPort");
 
-const devServer = require('./devServe');
+const webpackConfig = require("./webpack.config");
 
-const  webpackDevServer = require('webpack-dev-server');
+const devServer = require("./devServe");
 
-const webpack = require('webpack');
+const webpackDevServer = require("webpack-dev-server");
+
+const webpack = require("webpack");
 
 webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
 
-webpackConfig.entry.index.unshift('webpack-dev-server/client?http://localhost:9000/');
+const opn = require("opn");
 
-const compiler = webpack(webpackConfig)
+const port = 9000;
 
-webpackDevServer.addDevServerEntrypoints(webpackConfig, devServer);
+// webpackConfig.entry.index.unshift(
+//   `webpack-dev-server/client?http://localhost:${port}/`
+// );
+// const compiler = webpack(webpackConfig);
+// webpackDevServer.addDevServerEntrypoints(webpackConfig, devServer);
+// const server = new webpackDevServer(compiler, devServer);
+// server.listen(port, "127.0.0.1", () => {
+//   opn(`http://localhost:${port}`);
+// });
 
-const server = new webpackDevServer(compiler, devServer);
 
-const opn = require('opn');
-
-server.listen(9000, '127.0.0.1', () => {
-  opn('http://localhost:9000')
-})
+detectPort(port).then(usePort => {
+  console.log(usePort)
+  webpackConfig.entry.index.unshift(
+    `webpack-dev-server/client?http://localhost:${usePort}/`
+  );
+  const compiler = webpack(webpackConfig);
+  webpackDevServer.addDevServerEntrypoints(webpackConfig, devServer);
+  const server = new webpackDevServer(compiler, devServer);
+  server.listen(usePort, "127.0.0.1", () => {
+    console.log(`listening in ${usePort}`)
+    opn(`http://localhost:${usePort}`);
+  });
+});
