@@ -3,7 +3,7 @@ const Cart = () => import('@src/mobile/@screens/Cart.vue')
 
 export default  [
   {
-    path: '/Home', 
+    path: '/home', 
     component: Home,
     meta: {
       title: 'mall首页'

@@ -10,13 +10,22 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es5",
-    "lib": ["es7", "dom"],
-    "typeRoots": [
-      "typings"
+    "lib": [
+      "es7",
+      "dom"
     ],
+  
+    "types":["jest"],
+    // "typeRoots": [
+    //   "typings"
+    // ],
     "paths": {
-      "@shared/*": ["src/@shared/*"],
-      "@src/*": ["src/*"]
+      "@shared/*": [
+        "src/@shared/*"
+      ],
+      "@src/*": [
+        "src/*"
+      ]
     }
   },
   "include": [
@@ -24,6 +33,9 @@
     "typings/**/*"
   ],
   "exclude": [
-    "node_modules/**/*"
+    "node_modules/**/*",
+    "**/*.test.js",
+    "**/*.test.ts",
+    "**/*.spec.ts"
   ]
 }
