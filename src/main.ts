@@ -2,22 +2,31 @@ import Vue from "vue";
 
 import { routes } from "@src/config/mobile";
 
-import VueRouter from 'vue-router';
+import VueRouter from "vue-router";
 
-import { setTitle } from '@shared/utils/index';
+import { setTitle } from "@shared/utils/index";
+
+import Vuex from "vuex";
+
+import state from "./mall/store/index";
+
+Vue.use(Vuex);
 
 Vue.use(VueRouter);
 
+const store = new Vuex.Store(state);
+
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   routes
-})
+});
 
 router.beforeEach((to, from, next) => {
   setTitle(to.meta.title);
   next();
-})
+});
 
 new Vue({
-   router
-}).$mount('#app');
+  store,
+  router
+}).$mount("#app");

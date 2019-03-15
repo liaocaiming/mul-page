@@ -1,12 +1,12 @@
-const Home = () => import('@src/mobile/@screens/Home.vue');
-const Cart = () => import('@src/mobile/@screens/Cart.vue')
+const Home = () => import('@src/mall/@screens/Home.vue');
+const Cart = () => import('@src/mall/@screens/Cart.vue')
 
 export default  [
   {
     path: '/home', 
     component: Home,
     meta: {
-      title: 'mall首页'
+      title: 'mall首页11'
     }
   },
   {

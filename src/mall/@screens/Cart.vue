@@ -2,25 +2,45 @@
   <div>
     <div class="greeting">Hello {{name}}{{exclamationMarks}}</div>
     <div>cart</div>
+    <div>{{age}}</div>
     <button @click="decrement">-</button>
     <button @click="increment">+</button>
     <img src="../../images/2.jpg" alt="">
+    <div>goTocart</div>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
 
-@Component
-export default class Hello extends Vue {
-  enthusiasm = 1;
-  public data() {
-    return {
-      name: "liaocaiming"
-    };
+let page = 1;
+
+import Vue from 'vue';
+
+import Component from 'vue-class-component';
+
+import {  Action, State } from 'vuex-class';
+
+@Component({
+  props: {
+    age: {
+      type: Number,
+      default: 11
+    }
   }
+})
+
+export default class Hello extends Vue {
+  @Action('add') add!: (num: number) => void
+  public name?: string = '廖才明';
+  enthusiasm = 1;
+  // public data() {
+  //   return {
+  //     name: "liaocaiming"
+  //   };
+  // }
   public increment() {
     this.enthusiasm++;
+    page++
   }
   public decrement() {
     if (this.enthusiasm > 1) {

@@ -5,17 +5,18 @@
     "experimentalDecorators": true,
     "sourceMap": true,
     "strict": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "noImplicitReturns": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es5",
     "lib": [
       "es7",
-      "dom"
+      "dom",
     ],
+    "strictFunctionTypes": false,
   
-    "types":["jest"],
+    // "types":["ts-jest"],
     // "typeRoots": [
     //   "typings"
     // ],
