@@ -1,8 +1,8 @@
-import dyadicArray from './dyadicArray';
+import dyadicArray from "./dyadicArray";
 
-import setTitle from './setTitle';
+import setTitle from "./setTitle";
 
 export {
   dyadicArray,
   setTitle,
-}
+};

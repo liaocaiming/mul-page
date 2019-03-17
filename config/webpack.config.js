@@ -37,7 +37,8 @@ module.exports = {
         loader: 'ts-loader',
         exclude: '/node_modules/',
         options: {
-          appendTsSuffixTo: [/\.vue$/]
+          appendTsSuffixTo: [/\.vue$/],
+          transpileOnly: true
         }
       },
       {
@@ -69,7 +70,10 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    new ForkTsCheckerWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      tslint: true,
+      vue: true
+    }),
     new HtmlWebpackPlugin({
       template: helpers.resolve('../tpl/index.html'),
       filename: 'index.html'

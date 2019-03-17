@@ -1,5 +1,6 @@
 {
     "extends": "tslint:recommended",
+    "rulesDirectory": ["src/"],
     "rules": {
         "no-console": true,
         "only-arrow-functions": [
@@ -7,6 +8,8 @@
             "allow-declarations",
             "allow-named-functions"
         ],
-       "no-empty": true
+       "no-empty": true,
+       "member-ordering":true,
+       "quotemark":true
     }
 }

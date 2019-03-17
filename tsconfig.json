@@ -34,9 +34,9 @@
     "typings/**/*"
   ],
   "exclude": [
-    "node_modules/**/*",
     "**/*.test.js",
     "**/*.test.ts",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "node_modules"
   ]
 }
