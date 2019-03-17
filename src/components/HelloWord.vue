@@ -12,7 +12,7 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 
 @Component
 export default class Hello extends Vue {
-  enthusiasm = 1;
+  private  enthusiasm = 1;
   public data() {
     return {
       name: "liaocaiming"

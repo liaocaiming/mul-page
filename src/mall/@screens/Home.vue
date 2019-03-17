@@ -24,7 +24,6 @@ export default class Hello extends Vue {
     };
   }
   public increment() {
-    console.log(this)
     this.enthusiasm++;
     this.add(10);
   }
