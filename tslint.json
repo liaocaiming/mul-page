@@ -10,6 +10,7 @@
         ],
        "no-empty": true,
        "member-ordering":true,
-       "quotemark":true
+       "quotemark":false,
+       "semicolon": [true, "always", "ignore-bound-class-methods"]
     }
 }

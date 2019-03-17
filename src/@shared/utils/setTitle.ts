@@ -14,4 +14,4 @@ export default  (title: string) => {
     iframe.addEventListener("load", iframeCallback);
     document.body.appendChild(iframe);
   }
-}
+};
