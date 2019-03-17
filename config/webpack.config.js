@@ -1,6 +1,7 @@
 const  helpers = require('./helpers');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const argv = require('yargs').argv
 const name = argv.name || 'mobile';
 
@@ -68,6 +69,7 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
+    new ForkTsCheckerWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: helpers.resolve('../tpl/index.html'),
       filename: 'index.html'

@@ -17,9 +17,9 @@
     "strictFunctionTypes": false,
   
     // "types":["ts-jest"],
-    // "typeRoots": [
-    //   "typings"
-    // ],
+    "typeRoots": [
+      "typings"
+    ],
     "paths": {
       "@shared/*": [
         "src/@shared/*"

@@ -4,11 +4,14 @@ import { routes } from "@src/config/mobile";
 
 import VueRouter from "vue-router";
 
-import { setTitle } from "@shared/utils/index";
 
 import Vuex from "vuex";
 
 import state from "./mall/store/index";
+
+import { setTitle, dyadicArray } from '@shared/utils/index';
+
+console.log(1111)
 
 Vue.use(Vuex);
 
