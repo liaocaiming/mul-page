@@ -1,16 +1,18 @@
 {
-    "extends": "tslint:recommended",
-    "rulesDirectory": ["src/"],
-    "rules": {
-        "no-console": true,
-        "only-arrow-functions": [
-            true,
-            "allow-declarations",
-            "allow-named-functions"
-        ],
-       "no-empty": true,
-       "member-ordering":true,
-       "quotemark":false,
-       "semicolon": [true, "always", "ignore-bound-class-methods"]
-    }
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "rulesDirectory": ["src/"],
+  "rules": {
+    "no-console": true,
+    "only-arrow-functions": [
+      true,
+      "allow-declarations",
+      "allow-named-functions"
+    ],
+    "no-empty": true,
+    "member-ordering": false,
+    "quotemark": false,
+    "semicolon": [true, "always", "ignore-bound-class-methods"],
+    "object-literal-sort-keys": false,
+    "no-unused-expression": false
+  }
 }

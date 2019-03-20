@@ -3,16 +3,19 @@
     <div class="greeting">Hello {{name}}{{exclamationMarks}}</div>
     <button @click="decrement">-</button>
     <button @click="increment">+</button>
-    <img src="../images/2.jpg" alt="">
+    <img
+      src="../images/2.jpg"
+      alt=""
+    >
   </div>
 </template>
 
 <script lang="ts">
-import  {Component, Vue, Prop } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component
 export default class Hello extends Vue {
-  private  enthusiasm = 1;
+  private enthusiasm = 1;
   public data() {
     return {
       name: "liaocaiming"

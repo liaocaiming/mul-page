@@ -9,9 +9,7 @@ import Vuex from "vuex";
 
 import state from "./mall/store/index";
 
-import { setTitle, dyadicArray } from '@shared/utils/index';
-
-console.log(1111)
+import { setTitle } from '@shared/utils/index';
 
 Vue.use(Vuex);
 

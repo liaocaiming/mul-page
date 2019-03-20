@@ -4,6 +4,8 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const argv = require('yargs').argv
 const name = argv.name || 'mobile';
+const webpack = require('webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   mode: 'development',
@@ -78,5 +80,9 @@ module.exports = {
       template: helpers.resolve('../tpl/index.html'),
       filename: 'index.html'
     }),
-  ]
+    // new  webpack.LoaderOptionsPlugin({
+    //   progress: true
+    // }),
+    // new BundleAnalyzerPlugin()
+  ],
 }

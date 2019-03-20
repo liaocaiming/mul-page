@@ -9,14 +9,14 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component
 export default class Hello extends Vue {
-  enthusiasm = 1;
+  private enthusiasm = 1;
   public data() {
     return {
-      name: "liaocaiming"
+      name: "liaocaiming",
     };
   }
   public increment() {

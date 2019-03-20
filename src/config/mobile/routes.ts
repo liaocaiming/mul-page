@@ -1,5 +1,5 @@
 const Home = () => import('@src/mobile/@screens/Home.vue');
-const Cart = () => import('@src/mobile/@screens/Cart.vue')
+const Cart = () => import('@src/mobile/@screens/Cart.vue');
 
 export default  [
   {
@@ -16,4 +16,4 @@ export default  [
       title: '购物车'
     }
   }
-]
+];

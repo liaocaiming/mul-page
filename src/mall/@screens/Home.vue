@@ -9,15 +9,15 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 import {  Action, State } from 'vuex-class';
 
 @Component
 export default class Hello extends Vue {
-  @Prop() count?: number
-  @Action('add') private add!: (number: number) => void;
+  @Prop() private count?: number;
+  @Action('add') private add!: (num: number) => void;
   @State((state) => state.count) public stateCount!:number;
-  enthusiasm = 1;
+  private enthusiasm = 1;
   public data() {
     return {
       name: "liaocaiming",

@@ -30,9 +30,9 @@ import {  Action, State } from 'vuex-class';
 })
 
 export default class Hello extends Vue {
-  @Action('add') add!: (num: number) => void
+  @Action('add') private add!: (num: number) => void;
   public name?: string = '廖才明';
-  enthusiasm = 1;
+  private enthusiasm = 1;
   // public data() {
   //   return {
   //     name: "liaocaiming"
@@ -40,7 +40,7 @@ export default class Hello extends Vue {
   // }
   public increment() {
     this.enthusiasm++;
-    page++
+    page++;
   }
   public decrement() {
     if (this.enthusiasm > 1) {
