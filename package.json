@@ -5,11 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node config/webpack.dev.js --progress"
+    "start": "node config/webpack.dev.js --progress",
+    "prod": "cross-env NODE_ENV=production  node config/webpack.prod.js",
+    "release": "cross-env NODE_ENV=development  node config/webpack.prod.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "archiver": "^3.0.0",
+    "cross-env": "^5.2.0",
     "string-replace-loader": "^2.1.1",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.3.3",

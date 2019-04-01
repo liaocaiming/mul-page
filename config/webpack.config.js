@@ -7,14 +7,15 @@ const name = argv.name || 'mobile';
 const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
+console.log(process.env.NODE_ENV);
 module.exports = {
-  mode: 'development',
+  mode: process.env.NODE_ENV || 'development',
   entry: {
     index: [helpers.resolve('../src/main.ts')]
   },
   output: {
     filename: '[name].js',
-    path: helpers.resolve('../dist')
+    path: helpers.resolve(`../dist/${name}`)
   },
 
   module: {
@@ -70,6 +71,30 @@ module.exports = {
       '@src': helpers.resolve('../src')
     }
   },
+  optimization: {
+    runtimeChunk: {
+      name: 'manifest'
+    },
+    // minimize: [new UglifyJsPlugin()],
+    splitChunks:{
+      chunks: 'async',
+      minSize: 30000,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      name: false,
+      cacheGroups: {
+        vendor: {
+          name: 'vue',
+          chunks: 'initial',
+          priority: -10,
+          reuseExistingChunk: false,
+          test: /node_modules\/vue\/(.*)\.js/
+        },
+      }
+    }
+  },
+
   plugins: [
     new VueLoaderPlugin(),
     new ForkTsCheckerWebpackPlugin({
@@ -84,5 +109,8 @@ module.exports = {
     //   progress: true
     // }),
     // new BundleAnalyzerPlugin()
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    })
   ],
 }
