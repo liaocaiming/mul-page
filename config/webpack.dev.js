@@ -8,11 +8,17 @@ const webpackDevServer = require("webpack-dev-server");
 
 const webpack = require("webpack");
 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
 
 const opn = require("opn");
 
 const port = 9000;
+
+const argv = require('yargs').argv;
+
+const { analyzer, proxy } = argv;
 
 // webpackConfig.entry.index.unshift(
 //   `webpack-dev-server/client?http://localhost:${port}/`
@@ -24,7 +30,15 @@ const port = 9000;
 //   opn(`http://localhost:${port}`);
 // });
 
-
+if (analyzer)  {
+  webpackConfig.plugins.push(new BundleAnalyzerPlugin());
+}
+ 
+if (proxy) {
+  Object.assign(devServer, {
+    
+  })
+}
 detectPort(port).then(usePort => {
   console.log(usePort)
   webpackConfig.entry.index.unshift(

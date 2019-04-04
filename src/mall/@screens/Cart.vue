@@ -19,7 +19,7 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 
 import {  Action, State } from 'vuex-class';
-
+window.console.log(1111);
 @Component({
   props: {
     age: {

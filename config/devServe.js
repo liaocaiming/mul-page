@@ -1,4 +1,6 @@
-// const api =  require('./api');
+const api =  require('./api');
+const argv = require('yargs').argv;
+const { proxy } = argv;
 const webpackConfig = require('./webpack.config');
 module.exports = {
   contentBase: webpackConfig.output.path,
@@ -19,6 +21,8 @@ module.exports = {
   //   poll: true
   // },
   before(app) {
-    // app.use('/api', api())
+    if (!proxy) {
+      app.use('/api', api())
+    }
   }
 }

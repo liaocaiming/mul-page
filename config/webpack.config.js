@@ -5,17 +5,16 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const argv = require('yargs').argv
 const name = argv.name || 'mobile';
 const webpack = require('webpack');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
-console.log(process.env.NODE_ENV);
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
   entry: {
-    index: [helpers.resolve('../src/main.ts')]
+    index: [helpers.resolve('../src/main.ts')],
   },
   output: {
     filename: '[name].js',
-    path: helpers.resolve(`../dist/${name}`)
+    path: helpers.resolve(`../dist/${name}`),
+    publicPath: '/'
   },
 
   module: {
@@ -105,12 +104,13 @@ module.exports = {
       template: helpers.resolve('../tpl/index.html'),
       filename: 'index.html'
     }),
-    // new  webpack.LoaderOptionsPlugin({
-    //   progress: true
-    // }),
-    // new BundleAnalyzerPlugin()
+    new CleanWebpackPlugin(),
+    new  webpack.LoaderOptionsPlugin({
+      progress: true
+    }),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'age': 111
     })
   ],
 }
