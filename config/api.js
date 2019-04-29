@@ -7,7 +7,7 @@ const getLength = require('utf8-byte-length');
 const argv = require('yargs').argv;
 const dir = argv.name || 'boms';
 
-const travelFileSync = require('./travelFileSync');
+// const travelFileSync = require('./travelFileSync');
 
 function tansformPath(url) {
   let ret = url.split('?')[0];

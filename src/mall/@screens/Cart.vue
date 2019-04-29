@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="greeting">Hello {{name}}{{exclamationMarks}}</div>
+    <div class="greeting">Hello {{name}}{{exclamationMarks}} <span class="name">woca</span></div>
     <div>cart</div>
     <div>{{age}}</div>
     <button @click="decrement">-</button>
@@ -9,6 +9,14 @@
     <div>goTocart</div>
   </div>
 </template>
+<style lang='less' scoped>
+  .greeting {
+    color: red;
+    .name {
+      color: blue;
+    }
+  }
+</style>
 
 <script lang="ts">
 
