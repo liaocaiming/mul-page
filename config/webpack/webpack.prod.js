@@ -5,7 +5,7 @@ const webpack = require("webpack");
 
 const compiler = webpack(webpackConfig);
 
-const zip = require('./zip');
+const zip = require('../utils/zip');
 
 compiler.run((err, status) => {
   if (err) {

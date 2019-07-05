@@ -39,7 +39,7 @@ window.console.log(1111);
 
 export default class Hello extends Vue {
   @Action('add') private add!: (num: number) => void;
-  public name?: string = '廖才明';
+  public name?: string = '廖才明999';
   private enthusiasm = 1;
   // public data() {
   //   return {

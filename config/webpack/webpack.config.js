@@ -1,4 +1,4 @@
-const  helpers = require('./helpers');
+const  helpers = require('../utils/helpers');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
@@ -9,11 +9,11 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
   entry: {
-    index: [helpers.resolve('../src/main.ts')],
+    index: [helpers.resolve('../../src/main.ts')],
   },
   output: {
     filename: '[name].js',
-    path: helpers.resolve(`../dist/${name}`),
+    path: helpers.resolve(`../../dist/${name}`),
     publicPath: '/'
   },
 
@@ -98,8 +98,8 @@ module.exports = {
     extensions: [".js", ".json", ".jsx", ".css", ".vue", '.ts', '.less', '.scss'],
     alias: {
       'vue': 'vue/dist/vue.esm.js',
-      '@shared': helpers.resolve('../src/@shared'),
-      '@src': helpers.resolve('../src')
+      '@shared': helpers.resolve('../../src/@shared'),
+      '@src': helpers.resolve('../../src')
     }
   },
   optimization: {
@@ -133,7 +133,7 @@ module.exports = {
       vue: true
     }),
     new HtmlWebpackPlugin({
-      template: helpers.resolve('../tpl/index.html'),
+      template: helpers.resolve('../../tpl/index.html'),
       filename: 'index.html'
     }),
     new CleanWebpackPlugin(),

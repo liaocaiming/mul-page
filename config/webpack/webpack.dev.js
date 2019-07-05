@@ -1,4 +1,4 @@
-const detectPort = require("./utils/detectPort");
+const detectPort = require("../utils/detectPort");
 
 const webpackConfig = require("./webpack.config");
 
@@ -29,26 +29,27 @@ const { analyzer, proxy } = argv;
 // server.listen(port, "127.0.0.1", () => {
 //   opn(`http://localhost:${port}`);
 // });
-
-if (analyzer)  {
-  webpackConfig.plugins.push(new BundleAnalyzerPlugin());
-}
- 
-if (proxy) {
-  Object.assign(devServer, {
-    
-  })
-}
-detectPort(port).then(usePort => {
-  console.log(usePort)
-  webpackConfig.entry.index.unshift(
-    `webpack-dev-server/client?http://localhost:${usePort}/`
-  );
-  const compiler = webpack(webpackConfig);
-  webpackDevServer.addDevServerEntrypoints(webpackConfig, devServer);
-  const server = new webpackDevServer(compiler, devServer);
-  server.listen(usePort, "127.0.0.1", () => {
-    console.log(`listening in ${usePort}`)
-    opn(`http://localhost:${usePort}`);
+module.exports = function () {
+  if (analyzer)  {
+    webpackConfig.plugins.push(new BundleAnalyzerPlugin());
+  }
+   
+  if (proxy) {
+    Object.assign(devServer, {
+      
+    })
+  }
+  detectPort(port).then(usePort => {
+    console.log(usePort)
+    webpackConfig.entry.index.unshift(
+      `webpack-dev-server/client?http://localhost:${usePort}/`
+    );
+    const compiler = webpack(webpackConfig);
+    webpackDevServer.addDevServerEntrypoints(webpackConfig, devServer);
+    const server = new webpackDevServer(compiler, devServer);
+    server.listen(usePort, "127.0.0.1", () => {
+      console.log(`listening in ${usePort}`)
+      opn(`http://localhost:${usePort}`);
+    });
   });
-});
+}
