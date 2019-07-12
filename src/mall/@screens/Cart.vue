@@ -1,21 +1,25 @@
 <template>
   <div>
-    <div class="greeting">Hello {{name}}{{exclamationMarks}} <span class="name">woca</span></div>
+    <div class="greeting">Hello {{name}}{{exclamationMarks}}fdsaffdsaf <span class="name">woca</span></div>
     <div>cart</div>
     <div>{{age}}</div>
     <button @click="decrement">-</button>
     <button @click="increment">+</button>
     <img src="../../images/2.jpg" alt="">
-    <div>goTocart</div>
+    <div class="ceshi">mall cartfff</div>
   </div>
 </template>
 <style lang='less' scoped>
   .greeting {
-    color: red;
+    color: green;
     .name {
       color: blue;
     }
   }
+ 
+ .ceshi {
+   color: red;
+ }
 </style>
 
 <script lang="ts">

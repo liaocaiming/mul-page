@@ -1,13 +1,13 @@
 import Vue from "vue";
 
-import { routes } from "@src/config/mobile";
+import { routes } from "./config";
 
 import VueRouter from "vue-router";
 
 
 import Vuex from "vuex";
 
-import state from "./mall/store/index";
+import state from "./store/index";
 
 import { setTitle } from '@shared/utils/index';
 

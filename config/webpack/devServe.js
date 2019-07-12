@@ -1,7 +1,7 @@
 // const api =  require('./api');
 const argv = require('yargs').argv;
 const { proxy } = argv;
-const webpackConfig = require('./webpack.config');
+const webpackConfig = require('./webpack.base');
 module.exports = {
   contentBase: webpackConfig.output.path,
   compress: true,
