@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "gulp start",
-    "prod": "cross-env NODE_ENV=production  node config/webpack/webpack.prod.js",
-    "release": "cross-env NODE_ENV=development  node config/webpack/webpack.prod.js"
+    "start": "gulp start NODE_ENV=development",
+    "prod": "gulp release:prod",
+    "release": "cross-env NODE_ENV=production  node config/webpack/webpack.prod.js"
   },
   "author": "",
   "license": "ISC",

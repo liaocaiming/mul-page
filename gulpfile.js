@@ -11,3 +11,5 @@ gulp.task('default', ['timeout'], () => {
 });
 
 require('./config/gulp/createDevServer');
+
+require('./config/gulp/release.pro');
