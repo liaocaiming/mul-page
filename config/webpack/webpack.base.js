@@ -6,9 +6,10 @@ const argv = require('yargs').argv
 const name = argv.name || 'mobile';
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-console.log(helpers.resolve(`../../dist/${name}`), 'name');
+
+const { env = development } = argv;
 module.exports = {
-  mode: process.env.NODE_ENV || 'development',
+  mode: env,
   entry: {
 
   },
@@ -65,7 +66,7 @@ module.exports = {
       progress: true
     }),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'process.env.NODE_ENV': JSON.stringify(env),
       'age': 111
     })
   ],

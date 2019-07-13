@@ -2,7 +2,7 @@
   "extends": ["tslint:recommended", "tslint-config-prettier"],
   "rulesDirectory": ["src/"],
   "rules": {
-    "no-console": true,
+    // "no-console": true,
     "only-arrow-functions": [
       true,
       "allow-declarations",

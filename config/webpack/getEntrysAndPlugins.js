@@ -17,15 +17,20 @@ module.exports = function getEntry (name) {
       const pageObj = pageMap[page];
       if (pageObj.html && (pageObj.ts || pageObj.js)) {
         entry[entryName] = [helpers.resolve(`../../src/${pageObj.ts || pageObj.js}`)];
+        const filename = pageObj.html.split(`${name}/`)[1];
+        console.log( helpers.resolve(`../../src/${pageObj.html}`));
         plugins.push(
           new HtmlWebpackPlugin({
             template: helpers.resolve(`../../src/${pageObj.html}`),
-            filename: path.basename(pageObj.html)
+            filename,
+            chunks: ['manifest', entryName]
           }),
         )
       }
     })
 
+    console.log(entry)
+    console.log((plugins))
     return { 
       entry,
       plugins
