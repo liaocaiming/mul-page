@@ -10,7 +10,6 @@
     ],
     "no-empty": true,
     "member-ordering": false,
-    "quotemark": false,
     "semicolon": [true, "always", "ignore-bound-class-methods"],
     "object-literal-sort-keys": false,
     "no-unused-expression": false

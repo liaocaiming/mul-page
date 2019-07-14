@@ -24,7 +24,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: [".js", ".json", ".jsx", ".css", ".vue", '.ts', '.less', '.scss'],
+    extensions: [".js", ".json", ".jsx", ".css", ".vue", '.ts', '.less', '.scss', '.tsx'],
     alias: {
       'vue': 'vue/dist/vue.esm.js',
       '@shared': helpers.resolve('../../src/@shared'),
