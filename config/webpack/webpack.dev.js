@@ -52,7 +52,6 @@ module.exports = function() {
       webpackConfig.entry = Object.assign({}, webpackConfig.entry, entry);
       webpackConfig.plugins = webpackConfig.plugins.concat(plugins);
       webpackConfig.module.rules = webpackConfig.module.rules.concat(getRules(name));
-      console.log(webpackConfig);
       const compiler = webpack(webpackConfig);
       webpackDevServer.addDevServerEntrypoints(webpackConfig, devServer);
       const server = new webpackDevServer(compiler, devServer);

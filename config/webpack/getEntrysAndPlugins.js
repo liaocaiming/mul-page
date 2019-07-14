@@ -18,7 +18,6 @@ module.exports = function getEntry (name) {
       if (pageObj.html && (pageObj.ts || pageObj.js)) {
         entry[entryName] = [helpers.resolve(`../../src/${pageObj.ts || pageObj.js}`)];
         const filename = pageObj.html.split(`${name}/`)[1];
-        console.log( helpers.resolve(`../../src/${pageObj.html}`));
         plugins.push(
           new HtmlWebpackPlugin({
             template: helpers.resolve(`../../src/${pageObj.html}`),
@@ -29,8 +28,6 @@ module.exports = function getEntry (name) {
       }
     })
 
-    console.log(entry)
-    console.log((plugins))
     return { 
       entry,
       plugins

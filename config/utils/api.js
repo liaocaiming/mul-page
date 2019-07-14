@@ -7,7 +7,7 @@ const getLength = require('utf8-byte-length');
 const argv = require('yargs').argv;
 const dir = argv.name || 'boms';
 
-// const travelFileSync = require('./travelFileSync');
+const travelFileSync = require('./travelFileSync');
 
 function tansformPath(url) {
   let ret = url.split('?')[0];
@@ -28,8 +28,6 @@ function tansformPath(url) {
   return path.normalize(`${ret}.json`);
 }
 
-function json5toJson() {}
-
 /**
  * 简单的 http api connect 中间件请求处理,
  * 把特定路径请求的按路径访问相应的json文件
@@ -39,9 +37,8 @@ function json5toJson() {}
  */
 function serverApi() {
   return (req, res) => {
-    const rootUrl = path.join(__dirname, `../data/${dir}`);
-
-    const commonUrl =  path.join(__dirname, `../data/common`);
+    const rootUrl = path.join(__dirname, `../../data/${dir}`);
+    const commonUrl =  path.join(__dirname, `../../data/common`);
 
     const files = travelFileSync(rootUrl).concat(travelFileSync(commonUrl));
 

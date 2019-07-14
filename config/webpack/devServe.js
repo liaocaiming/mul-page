@@ -2,6 +2,8 @@
 const argv = require('yargs').argv;
 const { proxy } = argv;
 const webpackConfig = require('./webpack.base');
+const api = require('../utils/api');
+
 module.exports = {
   contentBase: webpackConfig.output.path,
   compress: true,
@@ -22,7 +24,7 @@ module.exports = {
   // },
   before(app) {
     if (!proxy) {
-      // app.use('/api', api())
+      app.use('/api', api())
     }
   }
 }

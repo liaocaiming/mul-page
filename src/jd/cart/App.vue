@@ -12,12 +12,20 @@
 </style>
 
 <script>
+
+import { fetch } from '@shared/utils';
+
 export default {
   data() {
     return {
       a: 'liaocaiming'
     };
-  }
+  },
+   created () {
+     fetch('get', '/api/cart/product').then((json) => {
+       window.console.log(json);
+     });
+  },
 };
 </script>
 
