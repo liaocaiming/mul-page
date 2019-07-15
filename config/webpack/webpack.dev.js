@@ -13,6 +13,12 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
 
 const webpackConfig = require("./webpack.base");
 
+const getAppHtml = require('./getAppHtml');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const mutilPage = require('../constants/mutilPage');
+
 const opn = require("opn");
 
 const port = 9000;
@@ -24,7 +30,13 @@ const { analyzer, proxy, name = "mall" } = argv;
 const getRules = require("./getRules");
 
 const entryAndPlugins = require("./getEntrysAndPlugins");
+
+
+
 module.exports = function() {
+
+  const isMutil = mutilPage.indexOf(name) !== -1;
+
   webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
 
   if (analyzer) {
@@ -42,6 +54,17 @@ module.exports = function() {
           `webpack-dev-server/client?http://${ip}:${usePort}/`
         );
       });
+
+      if (isMutil) {
+        const filename = `main.html`;
+
+        plugins.push(new HtmlWebpackPlugin({
+          templateContent: getAppHtml(plugins),
+          filename,
+        }))
+      }
+      
+
       webpackConfig.entry = Object.assign({}, webpackConfig.entry, entry);
       webpackConfig.plugins = webpackConfig.plugins.concat(plugins);
       webpackConfig.module.rules = webpackConfig.module.rules.concat(getRules(name));
@@ -51,12 +74,12 @@ module.exports = function() {
       server.listen(usePort, ip, () => {
         console.log(`listening in ${usePort}`);
         console.log(`listening ip ${ip}`)
-        opn(`http://${ip}:${usePort}`);
+        if (isMutil) {
+          opn(`http://${ip}:${usePort}/${filename}`);
+        } else {
+          opn(`http://${ip}:${usePort}`);
+        }
       });
     });
-
-    // webpackConfig.entry.index.unshift(
-    //   `webpack-dev-server/client?http://localhost:${usePort}/`
-    // );
   });
 };
