@@ -6,6 +6,8 @@ const webpackDevServer = require("webpack-dev-server");
 
 const webpack = require("webpack");
 
+const ip = require('../utils/getIpAddress')();
+
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 
@@ -22,15 +24,6 @@ const { analyzer, proxy, name = "mall" } = argv;
 const getRules = require("./getRules");
 
 const entryAndPlugins = require("./getEntrysAndPlugins");
-// webpackConfig.entry.index.unshift(
-//   `webpack-dev-server/client?http://localhost:${port}/`
-// );
-// const compiler = webpack(webpackConfig);
-// webpackDevServer.addDevServerEntrypoints(webpackConfig, devServer);
-// const server = new webpackDevServer(compiler, devServer);
-// server.listen(port, "127.0.0.1", () => {
-//   opn(`http://localhost:${port}`);
-// });
 module.exports = function() {
   webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
 
@@ -46,7 +39,7 @@ module.exports = function() {
       const { entry, plugins } = option;
       Object.keys(entry).forEach(key => {
         entry[key].unshift(
-          `webpack-dev-server/client?http://localhost:${usePort}/`
+          `webpack-dev-server/client?http://${ip}:${usePort}/`
         );
       });
       webpackConfig.entry = Object.assign({}, webpackConfig.entry, entry);
@@ -55,9 +48,10 @@ module.exports = function() {
       const compiler = webpack(webpackConfig);
       webpackDevServer.addDevServerEntrypoints(webpackConfig, devServer);
       const server = new webpackDevServer(compiler, devServer);
-      server.listen(usePort, "127.0.0.1", () => {
+      server.listen(usePort, ip, () => {
         console.log(`listening in ${usePort}`);
-        opn(`http://localhost:${usePort}`);
+        console.log(`listening ip ${ip}`)
+        opn(`http://${ip}:${usePort}`);
       });
     });
 

@@ -40,7 +40,11 @@ function serverApi() {
     const rootUrl = path.join(__dirname, `../../data/${dir}`);
     const commonUrl =  path.join(__dirname, `../../data/common`);
 
-    const files = travelFileSync(rootUrl).concat(travelFileSync(commonUrl));
+    let files = travelFileSync(rootUrl);
+
+    if (travelFileSync(commonUrl)) {
+      files = files.concat(travelFileSync(commonUrl))
+    }
 
     const reqFilename = tansformPath(req.url);
 

@@ -31,29 +31,29 @@ module.exports = {
       '@src': helpers.resolve('../../src')
     }
   },
-  optimization: {
-    runtimeChunk: {
-      name: 'manifest'
-    },
-    // minimize: [new UglifyJsPlugin()],
-    splitChunks:{
-      chunks: 'async',
-      minSize: 30000,
-      minChunks: 1,
-      maxAsyncRequests: 5,
-      maxInitialRequests: 3,
-      name: false,
-      cacheGroups: {
-        vendor: {
-          name: 'vue',
-          chunks: 'initial',
-          priority: -10,
-          reuseExistingChunk: false,
-          test: /node_modules\/vue\/(.*)\.js/
-        },
-      }
-    }
-  },
+  // optimization: {
+  //   runtimeChunk: {
+  //     name: 'manifest'
+  //   },
+  //   // minimize: [new UglifyJsPlugin()],
+  //   splitChunks:{
+  //     chunks: 'async',
+  //     minSize: 30000,
+  //     minChunks: 1,
+  //     maxAsyncRequests: 5,
+  //     maxInitialRequests: 3,
+  //     name: false,
+  //     cacheGroups: {
+  //       vue: {
+  //         name: 'vue',
+  //         chunks: 'initial',
+  //         priority: -10,
+  //         reuseExistingChunk: false,
+  //         test: /node_modules\/vue\/(.*)\.js/
+  //       },
+  //     }
+  //   }
+  // },
 
   plugins: [
     new VueLoaderPlugin(),
