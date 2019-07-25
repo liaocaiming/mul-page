@@ -1,5 +1,4 @@
 const  helpers = require('../utils/helpers');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const argv = require('yargs').argv
@@ -7,7 +6,7 @@ const name = argv.name || 'mobile';
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const { env = development } = argv;
+const { env = 'development' } = argv;
 module.exports = {
   mode: env,
   entry: {
