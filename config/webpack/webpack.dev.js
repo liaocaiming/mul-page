@@ -55,9 +55,9 @@ module.exports = function() {
         );
       });
 
+      
+      const filename = `main.html`;
       if (isMutil) {
-        const filename = `main.html`;
-
         plugins.push(new HtmlWebpackPlugin({
           templateContent: getAppHtml(plugins),
           filename,
@@ -65,7 +65,11 @@ module.exports = function() {
       }
       
 
+
       webpackConfig.entry = Object.assign({}, webpackConfig.entry, entry);
+      console.log(webpackConfig.entry, 'webpackConfig.entry****************************');
+
+      
       webpackConfig.plugins = webpackConfig.plugins.concat(plugins);
       webpackConfig.module.rules = webpackConfig.module.rules.concat(getRules(name));
       const compiler = webpack(webpackConfig);
