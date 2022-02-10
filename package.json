@@ -47,7 +47,7 @@
     "json5": "^2.1.0",
     "less-loader": "^4.1.0",
     "mime": "^2.4.1",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "string-replace-loader": "^2.1.1",
